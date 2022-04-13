@@ -20,12 +20,10 @@ jobs:
     - name: Initialize CodeQL
       id:   codeqltoolchain
       uses: github/codeql-action/init@v2
-      with:
-        languages: java
 
     - name: Run qltests
       run: |
        unset CODEQL_EXTRACTOR_JAVA_TRAP_DIR
-       printenv CODEQL_EXTRACTOR_JAVA_TRAP_DIR
+       printenv CODEQL_EXTRACTOR_JAVA_TRAP_DIR            # still set...
        "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run javascript-qltests
        "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run java-qltests
