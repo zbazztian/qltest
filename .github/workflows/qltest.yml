@@ -20,6 +20,8 @@ jobs:
     - name: Initialize CodeQL
       id:   codeqltoolchain
       uses: github/codeql-action/init@v2
+      with:
+        languages: java
 
     - name: Run qltests
       run: |
