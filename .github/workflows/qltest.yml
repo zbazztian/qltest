@@ -18,7 +18,9 @@ jobs:
       uses: actions/checkout@v2
 
     - run: |
-       gh codeql -h
+       gh extensions install github/gh-codeql
+       gh extension list
+       gh codeql test run java-qltests
 
 #    - name: Initialize CodeQL
 #      id:   codeqltoolchain
