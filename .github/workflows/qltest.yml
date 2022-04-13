@@ -17,13 +17,16 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Initialize CodeQL
-      id:   codeqltoolchain
-      uses: github/codeql-action/init@v2
+    - run: |
+       gh codeql -h
 
-    - name: Run qltests
-      run: |
-       unset CODEQL_EXTRACTOR_JAVA_TRAP_DIR
-       printenv CODEQL_EXTRACTOR_JAVA_TRAP_DIR            # still set...
-       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run javascript-qltests  # succeeds
-       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run java-qltests        # fails (succeeds locally with identical CodeQL toolchain)
+#    - name: Initialize CodeQL
+#      id:   codeqltoolchain
+#      uses: github/codeql-action/init@v2
+#
+#    - name: Run qltests
+#      run: |
+#       unset CODEQL_EXTRACTOR_JAVA_TRAP_DIR
+#       printenv CODEQL_EXTRACTOR_JAVA_TRAP_DIR            # still set...
+#       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run javascript-qltests  # succeeds
+#       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run java-qltests        # fails (succeeds locally with identical CodeQL toolchain)
