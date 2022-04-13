@@ -17,17 +17,20 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - run: |
-       gh extensions install github/gh-codeql
-       gh codeql test run java-qltests
-       #gh release download --pattern 'codeql-bundle.tar.gz' --repo github/codeql-action
-       #tar xf codeql-bundle.tar.gz
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - run: |
+#       #gh extensions install github/gh-codeql
+#       #gh codeql test run java-qltests
+#       gh release download --pattern 'codeql-bundle.tar.gz' --repo github/codeql-action
+#       tar xf codeql-bundle.tar.gz
+#       codeql/codeql test run java-qltests
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-#    - name: Initialize CodeQL
-#      id:   codeqltoolchain
-#      uses: github/codeql-action/init@v2
+    - name: Initialize CodeQL
+      id:   codeqltoolchain
+      uses: github/codeql-action/init@v2
+      with:
+        tools: https://github.com/zbazztian/ghas-customize/releases/download/main-releases/codeql-bundle-00000000-8c4b5c167de89f0c63a6e4e20ef22b34390c9d95-48e830010cfa784dbbc5ecc0e404246b83851476.tar.gz
 #
 #    - name: Run qltests
 #      run: |
