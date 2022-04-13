@@ -25,5 +25,5 @@ jobs:
       run: |
        unset CODEQL_EXTRACTOR_JAVA_TRAP_DIR
        printenv CODEQL_EXTRACTOR_JAVA_TRAP_DIR            # still set...
-       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run javascript-qltests
-       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run java-qltests
+       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run javascript-qltests  # succeeds
+       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run java-qltests        # fails (succeeds locally with identical CodeQL toolchain)
