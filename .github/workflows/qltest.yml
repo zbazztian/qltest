@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v2
 
     - run: |
-       gh extensions install ghithub/gh-codeql
+       gh extensions install github/gh-codeql
        gh codeql test run java-qltests
        #gh release download --pattern 'codeql-bundle.tar.gz' --repo github/codeql-action
        #tar xf codeql-bundle.tar.gz
