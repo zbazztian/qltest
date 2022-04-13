@@ -25,25 +25,7 @@ jobs:
 
     - name: Run qltests
       run: |
-       unset CODEQL_EXTRACTOR_JAVA_ROOT
-       unset CODEQL_EXTRACTOR_JAVA_WIP_DATABASE
-       unset CODEQL_EXTRACTOR_JAVA_SOURCE_ARCHIVE_DIR
        unset CODEQL_EXTRACTOR_JAVA_TRAP_DIR
-       unset CODEQL_SCRATCH_DIR
-       unset CODEQL_EXTRACTOR_JAVA_SCRATCH_DIR
-       unset CODEQL_EXTRACTOR_JAVA_LOG_DIR
-       unset CODEQL_EXTRACTOR_JAVA_WIP_DATABASE
-       unset CODEQL_JAVA_HOME
-       unset SEMMLE_PRELOAD_libtrace
-       unset SEMMLE_PRELOAD_libtrace32
-       unset SEMMLE_PRELOAD_libtrace64
-       unset LD_PRELOAD
-       unset SEMMLE_JAVA_TOOL_OPTIONS
-       unset ODASA_TRACER_CONFIGURATION
-       unset CODEQL_TRACER_LOG
-       unset CODEQL_RUNNER
-       unset CODEQL_RAM
-       unset CODEQL_THREADS
-       printenv
+       printenv CODEQL_EXTRACTOR_JAVA_TRAP_DIR
        "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run javascript-qltests
        "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run java-qltests
