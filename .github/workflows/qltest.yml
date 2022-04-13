@@ -23,5 +23,5 @@ jobs:
 
     - name: Run qltests
       run: |
-       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run java-qltests
        "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run javascript-qltests
+       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run java-qltests
