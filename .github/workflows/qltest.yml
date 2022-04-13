@@ -21,6 +21,8 @@ jobs:
        gh release download --pattern 'codeql-bundle.tar.gz' --repo github/codeql-action
        tar xf codeql-bundle.tar.gz
        codeql/codeql test run java-qltests
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 #    - name: Initialize CodeQL
 #      id:   codeqltoolchain
