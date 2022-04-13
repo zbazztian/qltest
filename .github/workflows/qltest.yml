@@ -1,0 +1,27 @@
+name: "qltest"
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  inject:
+    name: qltest
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
+      security-events: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Initialize CodeQL
+      id:   codeqltoolchain
+      uses: github/codeql-action/init@v2
+
+    - name: Run qltests
+      run: |
+       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run java-qltests
+       "${{ steps.codeqltoolchain.outputs.codeql-path }}" test run javascript-qltests

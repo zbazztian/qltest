@@ -1,0 +1,9 @@
+# https://codeql.github.com/docs/codeql-cli/about-codeql-packs/
+
+name: zbazztian/javascript-qltests
+groups: [javascript, test]
+dependencies:
+  codeql/javascript-all: "*"
+  codeql/javascript-queries: "*"
+extractor: javascript
+tests: .
